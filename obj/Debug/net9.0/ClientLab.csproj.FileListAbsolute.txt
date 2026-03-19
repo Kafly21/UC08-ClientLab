@@ -1,0 +1,6 @@
+C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.csproj.AssemblyReference.cache
+C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.AssemblyInfoInputs.cache
+C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.AssemblyInfo.cs
+C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.csproj.CoreCompileInputs.cache
+C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.sourcelink.json
