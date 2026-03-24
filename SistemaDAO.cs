@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
-using MySql.Data.MySqlCliente;
+using MySql.Data.MySqlClient;
 using System.Globalization;
 
 namespace ClientLab
@@ -18,81 +18,102 @@ namespace ClientLab
         }
 
         //Pessoa Fisica
-        public void InserirPF(Pessoa_Fisica pf)
+        public void InserirPF(Pessoa_Fisica cliente)
         {
-            using (var conn = _conexaoBanco.Conectar())
+            using (var conn = _conexaoBanco.ObterConexao())
             {
-                conn.Open();
+                string query = @"INSERT INTO tb_cliente_pf 
+                (NOME_CLIENTE, ENDERECO, CPF, RG) 
+                VALUES (@nome, @end, @cpf, @rg)";
 
-                string sql = "INSERT INTO tb_cliente_pf (NOME_CLIENTE, ENDERECO, CPF, RG) VALUES (@nome, @end, @cpf, @rg)";
-                var cmd = new MySqlCommand(sql, conn);
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nome", cliente.Nome);
+                    cmd.Parameters.AddWithValue("@end", cliente.Endereco);
+                    cmd.Parameters.AddWithValue("@cpf", cliente.CPF);
+                    cmd.Parameters.AddWithValue("@rg", cliente.RG);
 
-                cmd.Parameters.AddWithValue("@nome", pf.Nome);
-                cmd.Parameters.AddWithValue("@end", pf.Endereco);
-                cmd.Parameters.AddWithValue("@cpf", pf.CPF);
-                cmd.Parameters.AddWithValue("@rg", pf.RG);
-
-                cmd.ExecuteNonQuery();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
+
+            Console.WriteLine("[!] Pessoa Física cadastrada!");
+            Console.WriteLine("Aperte qualquer tecla para voltar ao menu.");
+            Console.ReadKey();
         }
 
         // Pessoa Juridica
-        public void InserirPJ(Pessoa_Juridica pj)
+        public void InserirPJ(Pessoa_Juridica cliente)
         {
-            using (var conn = _conexaoBanco.Conectar())
+            using (var conn = _conexaoBanco.ObterConexao())
             {
-                conn.Open();
+                string query = @"INSERT INTO tb_cliente_pj 
+                (NOME_CLIENTE, ENDERECO, CNPJ, IE) 
+                VALUES (@nome, @end, @cnpj, @ie)";
 
-                string sql = "INSERT INTO tb_cliente_pj (NOME_CLIENTE, ENDERECO, CNPJ, IE) VALUES (@nome, @end, @cnpj, @ie)";
-                var cmd = new MySqlCommand(sql, conn);
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nome", cliente.Nome);
+                    cmd.Parameters.AddWithValue("@end", cliente.Endereco);
+                    cmd.Parameters.AddWithValue("@cnpj", cliente.CNPJ);
+                    cmd.Parameters.AddWithValue("@ie", cliente.IE);
 
-                cmd.Parameters.AddWithValue("@nome", pj.Nome);
-                cmd.Parameters.AddWithValue("@end", pj.Endereco);
-                cmd.Parameters.AddWithValue("@cnpj", pj.CNPJ);
-                cmd.Parameters.AddWithValue("@ie", pj.IE);
-
-                cmd.ExecuteNonQuery();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
+
+            Console.WriteLine("[!] Pessoa Jurídica cadastrada!");
+            Console.WriteLine("Aperte qualquer tecla para voltar ao menu.");
+            Console.ReadKey();
         }
 
         // Registrar Venda
-        public void RegistrarVenda(Cliente cliente, string tipo)
+        public void RegistrarVenda(Cliente cliente, double valor)
         {
-            using (var conn = _conexaoBanco.Conectar())
+            double imposto = cliente.Pagar_Imposto(valor);
+            double total = valor + imposto;
+
+            using (var conn = _conexaoBanco.ObterConexao())
             {
-                conn.Open();
+                string query = @"
+                INSERT INTO tb_vendas 
+                (FK_CLIENTE_PF, FK_CLIENTE_PJ, VALOR_COMPRA, VALOR_IMPOSTO, VALOR_TOTAL)
+                VALUES (@pf, @pj, @valor, @imposto, @total)";
 
-                string sql = @"INSERT INTO tb_vendas 
-                (FK_CLIENTE_PF, FK_CLIENTE_PJ, VALOR_COMPRA, VALOR_IMPOSTO, VALOR_TOTAL, data_hora_venda)
-                VALUES (@pf, @pj, @valor, @imposto, @total, NOW())";
-
-                var cmd = new MySqlCommand(sql, conn);
-
-                if (tipo == "f")
+                using (var cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@pf", cliente.ID);
-                    cmd.Parameters.AddWithValue("@pj", DBNull.Value);
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@pf", DBNull.Value);
-                    cmd.Parameters.AddWithValue("@pj", cliente.ID);
-                }
+                    if (cliente is Pessoa_Fisica)
+                    {
+                        cmd.Parameters.AddWithValue("@pf", cliente.ID);
+                        cmd.Parameters.AddWithValue("@pj", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@pf", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@pj", cliente.ID);
+                    }
 
-                cmd.Parameters.AddWithValue("@valor", cliente.Valor_Compra);
-                cmd.Parameters.AddWithValue("@imposto", cliente.Valor_Imposto);
-                cmd.Parameters.AddWithValue("@total", cliente.Total_Pagar);
+                    cmd.Parameters.AddWithValue("@valor", valor);
+                    cmd.Parameters.AddWithValue("@imposto", imposto);
+                    cmd.Parameters.AddWithValue("@total", total);
 
-                cmd.ExecuteNonQuery();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
             }
+
+            Console.WriteLine("[!] Venda registrada!");
+
         }
 
-        // Listar venda
+        //Listagens de Vendas
         public List<string> ListarVendas()
         {
             List<string> lista = new List<string>();
 
-            using (var conn = _conexaoBanco.Conectar())
+            using (var conn = _conexaoBanco.ObterConexao())
             {
                 conn.Open();
 
@@ -100,14 +121,12 @@ namespace ClientLab
                 SELECT 
                 v.ID_VENDA,
                 IFNULL(pf.NOME_CLIENTE, pj.NOME_CLIENTE) AS CLIENTE,
-                IFNULL(pf.ID_CLIENTE, pj.ID_CLIENTE) AS ID_CLIENTE,
                 v.VALOR_COMPRA,
                 v.VALOR_IMPOSTO,
-                v.VALOR_TOTAL,
-                v.data_hora_venda
+                v.VALOR_TOTAL
                 FROM tb_vendas v
                 LEFT JOIN tb_cliente_pf pf ON v.FK_CLIENTE_PF = pf.ID_CLIENTE
-                LEFT JOIN tb_cliente_pj pj ON v.FK_CLIENTE_PJ = pj.ID_CLIENTE;
+                LEFT JOIN tb_cliente_pj pj ON v.FK_CLIENTE_PJ = pj.ID_CLIENTE;";
 
                 var cmd = new MySqlCommand(sql, conn);
                 var reader = cmd.ExecuteReader();
@@ -117,54 +136,56 @@ namespace ClientLab
                     string linha =
                         $"ID: {reader["ID_VENDA"]} | Cliente: {reader["CLIENTE"]} | " +
                         $"Valor: {reader["VALOR_COMPRA"]} | Imposto: {reader["VALOR_IMPOSTO"]} | " +
-                        $"Total: {reader["VALOR_TOTAL"]} | Data: {reader["data_hora_venda"]}";
+                        $"Total: {reader["VALOR_TOTAL"]}";
 
                     lista.Add(linha);
                 }
             }
 
             return lista;
+
         }
 
         // CSV
-        public void GerarCSV()
+        public void GerarRelatorioCSV()
         {
-            using (var conn = _conexaoBanco.Conectar())
+            string path = "relatorio.csv";
+            string conteudo = "ID;Cliente;Valor;Imposto;Total\n";
+
+            using (var conn = _conexaoBanco.ObterConexao())
             {
                 conn.Open();
 
                 string sql = @"
                 SELECT 
-                    v.ID_VENDA,
-                    IFNULL(pf.NOME_CLIENTE, pj.NOME_CLIENTE) AS CLIENTE,
-                    v.VALOR_COMPRA,
-                    v.VALOR_IMPOSTO,
-                    v.VALOR_TOTAL,
-                    v.data_hora_venda
+                v.ID_VENDA,
+                IFNULL(pf.NOME_CLIENTE, pj.NOME_CLIENTE) AS CLIENTE,
+                v.VALOR_COMPRA,
+                v.VALOR_IMPOSTO,
+                v.VALOR_TOTAL
                 FROM tb_vendas v
                 LEFT JOIN tb_cliente_pf pf ON v.FK_CLIENTE_PF = pf.ID_CLIENTE
-                LEFT JOIN tb_cliente_pj pj ON v.FK_CLIENTE_PJ = pj.ID_CLIENTE";
+                LEFT JOIN tb_cliente_pj pj ON v.FK_CLIENTE_PJ = pj.ID_CLIENTE;";
 
                 var cmd = new MySqlCommand(sql, conn);
                 var reader = cmd.ExecuteReader();
 
-                using (StreamWriter sw = new StreamWriter("relatorio.csv"))
+                while (reader.Read())
                 {
-                    sw.WriteLine("ID,CLIENTE,VALOR,IMPOSTO,TOTAL,DATA");
-
-                    while (reader.Read())
-                    {
-                        sw.WriteLine(
-                            $"{reader["ID_VENDA"]}," +
-                            $"{reader["CLIENTE"]}," +
-                            $"{reader["VALOR_COMPRA"]}," +
-                            $"{reader["VALOR_IMPOSTO"]}," +
-                            $"{reader["VALOR_TOTAL"]}," +
-                            $"{reader["data_hora_venda"]}"
-                        );
-                    }
+                    conteudo +=
+                        $"{reader["ID_VENDA"]};" +
+                        $"{reader["CLIENTE"]};" +
+                        $"{reader["VALOR_COMPRA"]};" +
+                        $"{reader["VALOR_IMPOSTO"]};" +
+                        $"{reader["VALOR_TOTAL"]}\n";
                 }
             }
+
+            File.WriteAllText(path, conteudo);
+
+            Console.WriteLine($"[!] Sucesso! Arquivo gerado: {Path.GetFullPath(path)}");
+            Console.WriteLine("Aperte qualquer tecla para voltar ao menu.");
+            Console.ReadKey();
         }
     }
 }

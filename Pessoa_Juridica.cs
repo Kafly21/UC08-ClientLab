@@ -2,28 +2,28 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Org.BouncyCastle.Crypto.Digests;
 
 namespace ClientLab
 {
     public class Pessoa_Juridica : Cliente
     {
-        public string CPNJ {get; set;}
-        public string IE {get; set;}
+        public string CNPJ { get; set; }
+        public string IE { get; set; }
 
-        public Pessoa_Juridica(int id, string nome, string endereco, double valor_compra, double valor_imposto, double total)
+        public Pessoa_Juridica(string nome, string endereco, string cnpj, string ie)
         {
-            ID = id;
             Nome = nome;
             Endereco = endereco;
-            Valor_Compra = valor_compra;
-            Valor_Imposto = valor_imposto;
-            Total_Pagar = total;
+            CNPJ = cnpj;
+            IE = ie;
         }
+
+        public Pessoa_Juridica() { }
 
         public override double Pagar_Imposto(double valor)
         {
-            valor = Valor_Compra * 0.20;
-            return valor;
+            return valor * 0.20;
         }
     }
 }
