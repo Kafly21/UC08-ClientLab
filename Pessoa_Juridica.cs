@@ -8,8 +8,8 @@ namespace ClientLab
 {
     public class Pessoa_Juridica : Cliente
     {
-        public string CNPJ {get; set;}
-        public string IE {get; set;}
+        public string CNPJ { get; set; }
+        public string IE { get; set; }
 
         public Pessoa_Juridica(string nome, string endereco, string cnpj, string ie)
         {
@@ -19,16 +19,11 @@ namespace ClientLab
             IE = ie;
         }
 
-        public Pessoa_Juridica()
+        public Pessoa_Juridica() { }
+
+        public override double Pagar_Imposto(double valor)
         {
-            ID = 0;
-            Nome = "";
-            Endereco = "";
-            Valor_Compra = 0; 
-            Valor_Imposto = 0;
-            Total_Pagar = 0;
-            CNPJ = "";
-            IE = "";    
+            return valor * 0.20;
         }
     }
 }

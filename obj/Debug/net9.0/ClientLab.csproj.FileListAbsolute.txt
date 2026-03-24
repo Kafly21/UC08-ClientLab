@@ -4,3 +4,40 @@ C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAI
 C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.AssemblyInfo.cs
 C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.csproj.CoreCompileInputs.cache
 C:\Users\ead_dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.sourcelink.json
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.csproj.AssemblyReference.cache
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.AssemblyInfoInputs.cache
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.AssemblyInfo.cs
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.csproj.CoreCompileInputs.cache
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.sourcelink.json
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\ClientLab.exe
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\ClientLab.deps.json
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\ClientLab.runtimeconfig.json
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\ClientLab.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\ClientLab.pdb
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\Google.Protobuf.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\MySql.Data.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\System.Diagnostics.EventLog.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\System.Security.Permissions.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\System.Windows.Extensions.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.csproj.Up2Date
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\refint\ClientLab.dll
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.pdb
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ClientLab.genruntimeconfig.cache
+C:\Users\kauan\OneDrive - SESISENAISP - Escolas\Kauan_Dev\UC8 - ClientLab\ClientLab\obj\Debug\net9.0\ref\ClientLab.dll

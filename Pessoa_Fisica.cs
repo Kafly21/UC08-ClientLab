@@ -8,10 +8,9 @@ namespace ClientLab
 {
     public class Pessoa_Fisica : Cliente
     {
-        public string CPF {get; set;}
+        public string CPF { get; set; }
+        public string RG { get; set; }
 
-        public string RG {get; set;}
-        
         public Pessoa_Fisica(string nome, string endereco, string cpf, string rg)
         {
             Nome = nome;
@@ -20,16 +19,7 @@ namespace ClientLab
             RG = rg;
         }
 
-        public Pessoa_Fisica()
-        {
-            ID = 0;
-            Nome = "";
-            Endereco = "";
-            Valor_Compra = 0; 
-            Valor_Imposto = 0;
-            Total_Pagar = 0;
-            CPF = "";
-            RG = "";    
-        }
+        public Pessoa_Fisica() { }
+
     }
 }
