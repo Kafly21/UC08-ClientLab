@@ -15,5 +15,10 @@ namespace ClientLab
         {
             return valor * 0.10;
         }
+
+        public double CalcularTotal(double valor)
+        {
+            return valor + Pagar_Imposto(valor);
+        }
     }
 }
