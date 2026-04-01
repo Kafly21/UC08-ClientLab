@@ -73,7 +73,7 @@ namespace ClientLab
         public void RegistrarVenda(Cliente cliente, double valor)
         {
             double imposto = cliente.Pagar_Imposto(valor);
-            double total = valor + imposto;
+            double total = cliente.CalcularTotal(valor);
 
             using (var conn = _conexaoBanco.ObterConexao())
             {
